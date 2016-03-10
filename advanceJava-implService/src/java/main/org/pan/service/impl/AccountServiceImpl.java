@@ -1,5 +1,7 @@
 package org.pan.service.impl;
 
+import com.alibaba.dubbo.config.annotation.Service;
+import org.hibernate.Hibernate;
 import org.pan.domain.Account;
 import org.pan.service.AccountService;
 
@@ -9,12 +11,14 @@ import javax.persistence.TypedQuery;
 /**
  * Created by Administrator on 2016/2/29.
  */
+@Service
 public class AccountServiceImpl extends AbstractService implements AccountService {
 
     public Account getById(Long id) {
         EntityManager entityManager = getEntityManagerFactory().createEntityManager();
         try {
-            return entityManager.find(Account.class, id);
+            Account account = entityManager.find(Account.class, id);
+            return account;
         } finally {
             entityManager.close();
         }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 当前应用信息配置 -->
+    <dubbo:application name="simple-registry" />
+    <!-- 暴露服务协议配置 -->
+    <dubbo:protocol port="2181" />
+    <!-- 暴露服务 -->
+    <dubbo:service interface="org.pan.service.AccountService" ref="accountService"/>
+    <dubbo:registry address="127.0.0.1"/>
+
+    <bean id="accountService" class="org.pan.service.impl.AccountServiceImpl"/>
+</beans>

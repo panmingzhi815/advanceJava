@@ -1,8 +1,6 @@
 package org.pan.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 /**
  * Created by Administrator on 2016/2/29.
@@ -14,7 +12,7 @@ public class Account extends AbstractDomain {
     private String username;
     @Column
     private String password;
-    @OneToOne(mappedBy = "account")
+    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private AccountHeaderImage accountHeaderImage;
 
     public String getUsername() {
@@ -31,5 +29,13 @@ public class Account extends AbstractDomain {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public AccountHeaderImage getAccountHeaderImage() {
+        return accountHeaderImage;
+    }
+
+    public void setAccountHeaderImage(AccountHeaderImage accountHeaderImage) {
+        this.accountHeaderImage = accountHeaderImage;
     }
 }

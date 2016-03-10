@@ -9,18 +9,8 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class AccountHeaderImage extends AbstractDomain{
-    @OneToOne
-    private Account account;
     @Lob
     private byte[] headerImage;
-
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
-    }
 
     public byte[] getHeaderImage() {
         return headerImage;

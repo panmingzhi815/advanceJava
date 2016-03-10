@@ -22,7 +22,7 @@ public class AbstractServiceTest {
     }
 
     @AfterClass
-    public static void destory(){
+    public static void destroy(){
         newPersistenceUnit.close();
     }
 

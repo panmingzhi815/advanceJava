@@ -3,6 +3,7 @@ package org.pan.service.impl;
 import org.junit.Assert;
 import org.junit.Test;
 import org.pan.domain.Account;
+import org.pan.domain.AccountHeaderImage;
 
 /**
  * Created by xiaopan on 2016-03-01.
@@ -13,6 +14,9 @@ public class AccountServiceImplTest extends AbstractServiceTest{
         Account account = new Account();
         account.setUsername("admin");
         account.setPassword("admin2");
+
+        AccountHeaderImage accountHeaderImage = new AccountHeaderImage();
+        account.setAccountHeaderImage(accountHeaderImage);
         Long aLong = accountService.saveAccount(account);
         Assert.assertNotNull(aLong);
 
